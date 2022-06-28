@@ -5,6 +5,6 @@ class IndexControlador
 {
     public function Index()
     {
-        require_once "./Vista/login.php";
+        require_once "./Vista/views/admin/login.php";
     }
 }

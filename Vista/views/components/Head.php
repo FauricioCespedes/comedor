@@ -4,10 +4,10 @@
 
 
 <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
-<link rel="manifest" href="../../assets/favicon/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="./Vista/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./Vista/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./Vista/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="./Vista/assets/favicon/site.webmanifest">
 
 <!-- Font Family -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,4 +27,4 @@
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <!-- CSS -->
-<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="./Vista/css/styles.css">
