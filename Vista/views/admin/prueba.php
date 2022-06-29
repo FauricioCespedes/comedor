@@ -5,8 +5,11 @@
 				$head = file_get_contents('./Vista/views/components/Head.php');
 				echo $head;
 		?>
-    <title>Login</title>
+    <title></title>
 </head>
 <body>
+	<?php
+
+		?> 
 </body>
 </html>
