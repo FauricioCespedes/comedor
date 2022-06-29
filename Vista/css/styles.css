@@ -1,7 +1,24 @@
 :root{
-		--background-color: #9a9696;
+		--background-color: #d9d9d9;
 		--target-color: #ffffff;
 		--main-color: #2d17b1;
 		--main-color-hover: #5e47d2;
 		--text-color: #484141;
 }
+
+body{
+		background-color: var(--background-color);
+		color: var(--text-color);
+}
+
+.target-background{
+		background-color: var(--target-color);
+}
+
+/* Header */
+.header{
+		width: 95%;
+							
+}
+
+
