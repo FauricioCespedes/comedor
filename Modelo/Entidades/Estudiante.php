@@ -3,12 +3,29 @@
 class Estudiante
 {
     private $id;
+    private $cedula;
     private $nombre;
     private $primerApellido;
     private $segundoApellido;
-    private $cedula;
     private $idEspecialidad;
-    private $seccion;
+    private $idSeccion;
+
+    /**
+     * @return mixed
+     */
+    public function getIdSeccion()
+    {
+        return $this->idSeccion;
+    }
+
+    /**
+     * @param mixed $idSeccion
+     */
+    public function setIdSeccion($idSeccion)
+    {
+        $this->idSeccion = $idSeccion;
+    }
+
     /**
      * @return mixed
      */
@@ -105,19 +122,4 @@ class Estudiante
         $this->idEspecialidad = $idEspecialidad;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSeccion()
-    {
-        return $this->seccion;
-    }
-
-    /**
-     * @param mixed $seccion
-     */
-    public function setSeccion($seccion)
-    {
-        $this->seccion = $seccion;
-    }
 }
