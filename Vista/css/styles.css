@@ -1,8 +1,8 @@
 :root{
-		--background-color: #d9d9d9;
+		--background-color: #e5e7eb;
 		--target-color: #ffffff;
-		--main-color: #2d17b1;
-		--main-color-hover: #5e47d2;
+		--main-color: #00418a;
+		--main-color-hover: #221183;
 		--text-color: #484141;
 }
 
@@ -11,14 +11,50 @@ body{
 		color: var(--text-color);
 }
 
+.link{
+		transition: transform 300ms;
+}
+.link:hover{
+		transform: scale(1.05);
+}
+
+
 .target-background{
 		background-color: var(--target-color);
 }
 
-/* Header */
-.header{
-		width: 95%;
-							
+.general-shadow{
+		box-shadow: -2px 5px 17px 5px rgba(30, 30, 60, 0.13);
 }
 
-
+.menu-list{
+		padding: 2em .75em;
+		list-style: none;
+		margin: 0;
+}
+.menu-list__item{
+		padding: .5em 1em;
+		cursor: pointer;
+		border-radius: .4em;
+		margin-bottom: .5em;
+		transition: background-color 300ms, color 300ms, transform 300ms;
+}
+.menu-list__item:hover{
+		background-color: var(--main-color);
+		transform:  scale(1.01);
+}
+.menu-list__item:hover > a{
+		color: white;
+}
+.menu-list__link{
+		color: var(--text-color);
+		text-decoration: none;
+		font-size: 1.1rem;
+}
+/*Administrador*/
+.admin-menu{
+		width: 20%;
+		background-color: var(--target-color);
+}
+/*Cobros*/
+/*Estudiante*/

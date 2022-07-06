@@ -7,4 +7,7 @@ class IndexControlador
     {
         require_once "./Vista/views/admin/login.php";
     }
+		public function prueba(){
+				require_once "./Vista/views/admin/prueba.php";
+		}
 }

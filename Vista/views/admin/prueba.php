@@ -7,9 +7,12 @@
 		?>
     <title></title>
 </head>
-<body>
-	<?php
-
+<body class="min-vh-100">
+		<main>
+		<?php
+				$menu = file_get_contents('./vista/views/components/MenuAdmin.php');
+				echo $menu;
 		?> 
+		</main>
 </body>
 </html>
