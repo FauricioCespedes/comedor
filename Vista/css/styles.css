@@ -11,24 +11,41 @@ body{
 		color: var(--text-color);
 }
 
+/*General*/
 .link{
 		transition: transform 300ms;
 }
 .link:hover{
 		transform: scale(1.05);
 }
-
-
 .target-background{
 		background-color: var(--target-color);
 }
-
+.sidebar-shadow{
+		box-shadow: -2px 0px 5px -5px rgba(30, 30, 60, 0.13);
+}
 .general-shadow{
 		box-shadow: -2px 5px 17px 5px rgba(30, 30, 60, 0.13);
 }
-
+.header{
+		display: flex;
+		justify-content: space-between;
+		padding: .5em 2em;
+}
+.fa-gear{
+		transition: transform 300ms;
+}
+.fa-gear:hover{
+		transform: rotate(360deg);
+}
+.logo-covao{
+		display: block;
+		width: 115px;
+		margin: 1.5em 2em;
+		margin-top: 3em;
+}
 .menu-list{
-		padding: 2em .75em;
+		padding: 0 .75em;
 		list-style: none;
 		margin: 0;
 }
@@ -37,14 +54,14 @@ body{
 		cursor: pointer;
 		border-radius: .4em;
 		margin-bottom: .5em;
-		transition: background-color 300ms, color 300ms, transform 300ms;
+		transition: background-color 200ms, color 100ms, transform 100ms;
 }
 .menu-list__item:hover{
 		background-color: var(--main-color);
 		transform:  scale(1.01);
 }
 .menu-list__item:hover > a{
-		color: white;
+		color: white !important;
 }
 .menu-list__link{
 		color: var(--text-color);
@@ -58,3 +75,16 @@ body{
 }
 /*Cobros*/
 /*Estudiante*/
+
+/*Media Querys*/
+@media screen and (max-width: 980px){
+		.fa-bars{
+				display: block !important;
+		}
+		.admin-menu{
+				display: none;
+		}
+		.header i{
+				font-size: 1.45rem;
+		}
+}
