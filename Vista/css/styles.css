@@ -12,6 +12,9 @@ body{
 }
 
 /*General*/
+.content-section{
+		padding-top: 2em;
+}
 .link{
 		transition: transform 300ms;
 }

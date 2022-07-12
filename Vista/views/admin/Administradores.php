@@ -12,9 +12,11 @@
 </head>
 <body>
 		<?php echo $header; ?>
-		<main>
+		<main class="d-flex">
 		<?php echo $sidebar; ?>
-		administradores	
+				<section class="content-section">
+						
+				</section>
 		</main>
 		<?php echo $footer; ?>
 </body>

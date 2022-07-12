@@ -5,9 +5,10 @@ class IndexControlador
 {
     public function Index()
     {
-        require_once "./Vista/views/admin/login.php";
+        require_once "./Vista/views/Login.php";
     }
-		public function prueba(){
-				require_once "./Vista/views/admin/prueba.php";
-		}
+    public function RestablecerContrasena()
+    {
+        require_once "./Vista/views/RestablecerContrasena.php";
+    }
 }
