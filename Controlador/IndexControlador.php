@@ -11,4 +11,8 @@ class IndexControlador
     {
         require_once "./Vista/views/RestablecerContrasena.php";
     }
+    public function Logout()
+    {
+				//Aquí va el logout	
+    }
 }

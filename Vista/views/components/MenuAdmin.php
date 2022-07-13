@@ -3,7 +3,7 @@
 	<nav class="menu">
 		<ul class="menu-list">
 			<li class="menu-list__item">
-				<a href="#" class="menu-list__link">
+				<a href="./?controlador=Administrador&accion=Index" class="menu-list__link">
 					<i class="fa-solid fa-star me-1"></i>
 					Asistencia
 				</a>
@@ -14,31 +14,31 @@
 					Usuarios
 				</a>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					<li><a class="dropdown-item" href="#">Estudiantes</a></li>
-					<li><a class="dropdown-item" href="#">Profesores</a></li>
-					<li><a class="dropdown-item" href="#">Administradores</a></li>
+					<li><a class="dropdown-item" href="./?controlador=Estudiante&accion=Index">Estudiantes</a></li>
+					<li><a class="dropdown-item" href="./?controlador=Profesor&accion=Index">Profesores</a></li>
+					<li><a class="dropdown-item" href="./?controlador=Administrador&accion=Index">Administradores</a></li>
 				</ul>
 			</li>
 			<li class="menu-list__item">
-				<a href="#" class="menu-list__link">
+				<a href="./?controlador=Secciones&accion=Index" class="menu-list__link">
 					<i class="fa-solid fa-people-roof me-1"></i>
 					Secciones
 				</a>
 			</li>
 			<li class="menu-list__item">
-				<a href="#" class="menu-list__link">
+				<a href="./?controlador=Especialidades&accion=Index" class="menu-list__link">
 					<i class="fa-solid fa-microchip me-1"></i>
 					Especialidades
 				</a>
 			</li>
 			<li class="menu-list__item">
-				<a href="#" class="menu-list__link">
+				<a href="./?controlador=Tiquetes&accion=Index" class="menu-list__link">
 					<i class="fa-solid fa-ticket me-1"></i>
 					Tiquetes
 				</a>
 			</li>
 			<li class="menu-list__item">
-				<a href="#" class="menu-list__link">
+				<a href="./?controlador=Estadisticas&accion=Index" class="menu-list__link">
 					<i class="fa-solid fa-signal me-1"></i>
 					Estadísticas
 				</a>

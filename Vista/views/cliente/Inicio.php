@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 		<?php echo $head; ?>
-    <title>Comedor - Estadísticas</title>
+    <title>Comedor - Inicio</title>
 </head>
 <body>
 		<?php echo $header; ?>

@@ -12,7 +12,7 @@
 						</a>
 				</li>
 				<li>
-						<a class="dropdown-item" href="#">
+						<a class="dropdown-item" href="./?controlador=Index&accion=Logout">
 								<i class="fa-solid fa-arrow-right-from-bracket me-1"></i>
 								Salir
 						</a>

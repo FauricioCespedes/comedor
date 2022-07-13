@@ -2,9 +2,9 @@
 
 class EstudianteControlador
 {
-    public function BuscarId()
+    public function Index()
     {
-        require_once "./Vista/estudiante.php";
+        require_once "./Vista/views/admin/Estudiantes.php";
     }
 
     public function BuscarTodos()

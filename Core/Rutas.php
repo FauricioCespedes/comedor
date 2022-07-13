@@ -4,8 +4,10 @@ class Rutas {
     function CargarControlador($controlador)
     {
         $nombreControlador = ucwords($controlador)."Controlador";
-        $archivoControlador = './Controlador/'.ucwords($controlador).'Controlador.php';
-
+		
+				$archivoControlador = './Controlador/'.ucwords($controlador).'Controlador.php';
+				
+				
         if(!is_file($archivoControlador))
         {
             $archivoControlador='./Controlador/IndexControlador.php';
