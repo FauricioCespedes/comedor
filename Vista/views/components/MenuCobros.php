@@ -3,13 +3,13 @@
 	<nav class="menu">
 		<ul class="menu-list">
 			<li class="menu-list__item">
-				<a href="#" class="menu-list__link">
+				<a href="./?controlador=EstudianteCobros&accion=Index" class="menu-list__link">
 				  <i class="fa-solid fa-graduation-cap me-1"></i>
 				  Estudiantes 
 				</a>
 			</li>
 			<li class="menu-list__item">
-				<a href="#" class="menu-list__link">
+				<a href="./?controlador=ProfesorCobros&accion=Index" class="menu-list__link">
 				  <i class="fa-solid fa-chalkboard-user me-1"></i>
 					Profesores
 				</a>
@@ -30,13 +30,13 @@
 			<nav class="menu">
 				<ul class="menu-list">
 					<li class="menu-list__item">
-						<a href="#" class="menu-list__link">
+						<a href="./?controlador=EstudianteCobros&accion=Index" class="menu-list__link">
 							<i class="fa-solid fa-graduation-cap me-1"></i>
 							Estudiantes 
 						</a>
 					</li>
 					<li class="menu-list__item">
-						<a href="#" class="menu-list__link">
+						<a href="./?controlador=ProfesorCobros&accion=Index" class="menu-list__link">
 							<i class="fa-solid fa-chalkboard-user me-1"></i>
 							Profesores
 						</a>

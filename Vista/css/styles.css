@@ -12,6 +12,10 @@ body{
 }
 
 /*General*/
+*{
+		box-sizing: border-box;
+		font-family: 'Nunito Sans', sans-serif;
+}
 .content-section{
 		padding-top: 2em;
 }
