@@ -1,17 +1,12 @@
 <?php
-
-class Estudiante
-{
-    private $id;
-    private $nombre;
-    private $primerApellido;
-    private $segundoApellido;
-    private $cedula;
-    private $saldo;
-    private $idEspecialidad;
-    private $idSeccion;
-    private $estado;
-    private $becado;
+class Profesor{
+		private $id;
+		private $nombre;
+		private $primerApellido;
+		private $segundoApellido;
+		private $cedula;
+		private $saldo;
+		private $estado;
 
 		public function getId(){
 			return $this->id;
@@ -61,35 +56,11 @@ class Estudiante
 			$this->saldo = $saldo;
 		}
 
-		public function getIdEspecialidad(){
-			return $this->idEspecialidad;
-		}
-
-		public function setIdEspecialidad($idEspecialidad){
-			$this->idEspecialidad = $idEspecialidad;
-		}
-
-		public function getIdSeccion(){
-			return $this->idSeccion;
-		}
-
-		public function setIdSeccion($idSeccion){
-			$this->idSeccion = $idSeccion;
-		}
-
 		public function getEstado(){
 			return $this->estado;
 		}
 
 		public function setEstado($estado){
 			$this->estado = $estado;
-		}
-
-		public function getBecado(){
-			return $this->becado;
-		}
-
-		public function setBecado($becado){
-			$this->becado = $becado;
 		}
 }

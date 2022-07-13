@@ -2,71 +2,40 @@
 
 class Asistencia
 {
-    private $id;
-    private $idEstudiante;
-    private $fecha;
-    private $estado;
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+		private $id;
+		private $idUsuario;
+		private $fecha;
+		private $estado;
 
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+		public function getId(){
+			return $this->id;
+		}
 
-    /**
-     * @return mixed
-     */
-    public function getIdEstudiante()
-    {
-        return $this->idEstudiante;
-    }
+		public function setId($id){
+			$this->id = $id;
+		}
 
-    /**
-     * @param mixed $idEstudiante
-     */
-    public function setIdEstudiante($idEstudiante)
-    {
-        $this->idEstudiante = $idEstudiante;
-    }
+		public function getIdUsuario(){
+			return $this->idUsuario;
+		}
 
-    /**
-     * @return mixed
-     */
-    public function getFecha()
-    {
-        return $this->fecha;
-    }
+		public function setIdUsuario($idUsuario){
+			$this->idUsuario = $idUsuario;
+		}
 
-    /**
-     * @param mixed $fecha
-     */
-    public function setFecha($fecha)
-    {
-        $this->fecha = $fecha;
-    }
+		public function getFecha(){
+			return $this->fecha;
+		}
 
-    /**
-     * @return mixed
-     */
-    public function getEstado()
-    {
-        return $this->estado;
-    }
+		public function setFecha($fecha){
+			$this->fecha = $fecha;
+		}
 
-    /**
-     * @param mixed $estado
-     */
-    public function setEstado($estado)
-    {
-        $this->estado = $estado;
-    }
+		public function getEstado(){
+			return $this->estado;
+		}
+
+		public function setEstado($estado){
+			$this->estado = $estado;
+		}
 }
