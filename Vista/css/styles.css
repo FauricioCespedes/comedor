@@ -2,7 +2,7 @@
 		--background-color: #e5e7eb;
 		--target-color: #ffffff;
 		--main-color: #00418a;
-		--main-color-hover: #221183;
+		--main-color-hover: #0058bd;
 		--text-color: #484141;
 }
 
@@ -15,6 +15,13 @@ body{
 *{
 		box-sizing: border-box;
 		font-family: 'Nunito Sans', sans-serif;
+}
+.btn-comedor{
+		color: white !important;
+		background-color: var(--main-color);
+}
+.btn-comedor:hover{
+		background-color: var(--main-color-hover);
 }
 .content-section{
 		padding-top: 2em;
@@ -84,6 +91,11 @@ body{
 /*Estudiante*/
 
 /*Media Querys*/
+@media screen and (max-width: 480px){
+		.asistencia-section > h1{
+				text-align: center;
+		}
+}
 @media screen and (max-width: 980px){
 		.fa-bars{
 				display: block !important;
@@ -93,5 +105,8 @@ body{
 		}
 		.header i{
 				font-size: 1.45rem;
+		}
+		.asistencia-section{
+				width: 90% !important;
 		}
 }
