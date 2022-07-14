@@ -1,5 +1,5 @@
 <?php
-class EstadisticasControlador
+class EstadisticasAdminControlador
 {
     public function Index()
     {

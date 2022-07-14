@@ -3,13 +3,13 @@
 	<nav class="menu">
 		<ul class="menu-list">
 			<li class="menu-list__item">
-				<a href="./?controlador=ClienteInicioControlador&accion=Index" class="menu-list__link">
+				<a href="./?dir=cliente&controlador=ClienteInicio&accion=Index" class="menu-list__link">
 				  <i class="fa-solid fa-house-chimney-user me-1"></i>
 				  Inicio
 				</a>
 			</li>
 			<li class="menu-list__item">
-				<a href="./?controlador=ClienteEstadisticasControlador&accion=Index" class="menu-list__link">
+				<a href="./?dir=cliente&controlador=ClienteEstadisticas&accion=Index" class="menu-list__link">
 					<i class="fa-solid fa-signal me-1"></i>
 					Estadísticas
 				</a>
@@ -30,13 +30,13 @@
 			<nav class="menu">
 				<ul class="menu-list">
 					<li class="menu-list__item">
-						<a href="./?controlador=ClienteInicioControlador&accion=Index" class="menu-list__link">
+						<a href="./?dir=cliente&controlador=ClienteInicio&accion=Index" class="menu-list__link">
 							<i class="fa-solid fa-house-chimney-user me-1"></i>
 							Inicio
 						</a>
 					</li>
 					<li class="menu-list__item">
-						<a href="./?controlador=ClienteEstadisticasControlador&accion=Index" class="menu-list__link">
+						<a href="./?dir=cliente&controlador=ClienteEstadisticas&accion=Index" class="menu-list__link">
 							<i class="fa-solid fa-signal me-1"></i>
 							Estadísticas
 						</a>

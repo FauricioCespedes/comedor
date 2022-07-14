@@ -1,12 +1,16 @@
 <?php
 
 class Rutas {
-    function CargarControlador($controlador)
+    function CargarControlador($controlador, $dir)
     {
         $nombreControlador = ucwords($controlador)."Controlador";
 		
-				$archivoControlador = './Controlador/'.ucwords($controlador).'Controlador.php';
-				
+				if($dir == null) {
+						$archivoControlador = './Controlador/'.ucwords($controlador).'Controlador.php';
+				}
+				else{
+						$archivoControlador = './Controlador/'.$dir.'/'.ucwords($controlador).'Controlador.php';
+				}
 				
         if(!is_file($archivoControlador))
         {
