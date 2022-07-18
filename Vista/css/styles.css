@@ -24,7 +24,7 @@ body{
 		background-color: var(--main-color-hover);
 }
 .content-section{
-		padding-top: 2em;
+		padding: 3em 0;
 }
 .link{
 		transition: transform 300ms;
