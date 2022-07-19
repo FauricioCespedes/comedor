@@ -7,6 +7,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+		<!--<style>
+				.fixed-table-toolbar > div {position: relative; z-index: -1;}
+		</style>-->
 		<?php echo $head; ?>
     <title>Comedor - Profesores</title>
 </head>
@@ -25,69 +28,109 @@
 						data-search-align="left"
 						data-page-list="[10, 25, 50, 100, all]"
 						data-buttons="buttons"
-						data-mobile-responsive= "true"
-						data-check-on-init= "true"
 						data-search="true"
 						data-url="">
 						<thead>
 								<tr>
-										<th data-checkbox="true" data-sortable="true"></th>
+										<th data-checkbox="true"></th>
 										<th data-field="name" data-sortable="true">Nombre</th>
-										<th data-field="primerapellido data-sortable="true"">Apellidos</th>
-										<th data-field="cedula data-sortable="true"">Cedula</th>
-										<th data-field="saldo data-sortable="true"">Saldo</th>
-										<th data-field="modificar data-sortable="true"">Editar</th>
+										<th data-field="primerapellido" data-sortable="true">Primer Apellido</th>
+										<th data-field="segundoapellido" data-sortable="true">Segundo Apellido</th>
+										<th data-field="cedula" data-sortable="true">Cedula</th>
+										<th data-field="saldo" data-sortable="true">Saldo</th>
+										<th data-field="correo" data-sortable="true">Correo</th>
+										<th data-field="modificar" class="text-center">Editar</th>
 								</tr>
 						</thead>
 						<tbody>
+								<?php
+					  				if($todosProfesor != null){
+												foreach($todosProfesor as $profesor){
+														if($profesor->getEstado() == 1){
+								?>
 								<tr>
 										<td></td>
-										<td>Pepe</td>
-										<td>Castro</td>
-										<td>40555</td>
-										<td>$1234</td>
-										<td>boton</td>
+										<td><?php echo $profesor->getNombre(); ?></td>
+										<td><?php echo $profesor->getPrimerApellido(); ?></td>
+										<td><?php echo $profesor->getSegundoApellido(); ?></td>
+										<td><?php echo $profesor->getCedula(); ?></td>
+										<td><?php echo $profesor->getSaldo(); ?></td>
+										<td><?php echo $profesor->getCorreo(); ?></td>
+										<td class="text-center"><i class="fa-solid fa-pen-to-square" style="font-size: 1.2rem"></i></td>	
 								</tr>
-								<tr>
-										<td></td>
-										<td>Juan</td>
-										<td>Castro</td>
-										<td>30555</td>
-										<td>$1234</td>
-										<td>boton</td>
-								</tr>
+								<?php
+														}
+												}
+										}	
+								?>
 						</tbody>
 						</table>
 				</section>
 		</main>
+
 		<?php echo $footer; ?>
+
+		<!-- Modal Crear Profesores -->
+		<div class="modal fade" id="crearProfesorModal" tabindex="-1" aria-labelledby="crearProfesorModal" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+						<form action="./?dir=admin&controlador=Profesor&accion=Crear" method="POST">
+							<div class="modal-header">
+								<h5 class="modal-title" id="crearProfesorModal">Crear Profesor</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="mb-3">
+									<label for="nombre" class="form-label">Nombre</label>
+									<input type="text" class="form-control" id="nombre" name="nombre">
+								</div>
+								<div class="mb-3">
+									<label for="primerApellido" class="form-label">Primer Apellido</label>
+									<input type="text" class="form-control" id="primerApellido" name="primerApellido">
+								</div>
+								<div class="mb-3">
+									<label for="segundoApellido" class="form-label">Segundo Apellido</label>
+									<input type="text" class="form-control" id="segundoApellido" name="segundoApellido">
+								</div>
+								<div class="mb-3">
+									<label for="cedula" class="form-label">Cédula</label>
+									<input type="text" class="form-control" id="cedula" name="cedula">
+								</div>
+								<div class="mb-3">
+									<label for="saldo" class="form-label">Saldo (Colones)</label>
+									<input type="text" class="form-control" value="0" id="saldo" name="saldo">
+								</div>
+								<div class="mb-3">
+									<label for="correo" class="form-label">Correo</label>
+									<input type="email" class="form-control" id="correo" name="correo">
+								</div>
+								<div class="mb-3">
+									<label for="contrasena" class="form-label">Contraseña</label>
+									<input type="password" class="form-control" id="contrasena" name="contrasena">
+								</div>
+							</div>
+							<div class="modal-footer d-flex justify-content-between">
+								<button type="submit" class="btn btn-primary w-25">Crear</button>
+							</div>
+						</form>
+				</div>
+			</div>
+		</div>
+
 		<script>
 				function buttons (){
 						return{
-								btnCrear: {
-										text: 'Crear Pofesor',
-										icon: 'bi-plus-circle',
-										event: function () {
-												location.href = './?';
-										},
-										attributes: {
-											title: 'Crear Profesor',
-										  style: 'background-color: #5e931a;'
-										}
+								btnCrear:{
+										html: '<button title="Crear Profesor" data-bs-toggle="modal" data-bs-target="#crearProfesorModal" class="btn btn-success"><i class="bi bi-plus-square"></i></button>'		
 								},
-								btnEliminar: {
-										text: 'Eliminar Profesor',
-										icon: 'bi-trash',
-										event: function () {
-												location.href = './?';
-										},
-										attributes: {
-											title: 'Eliminar Profesor',
-										  style: 'background-color: #a61717;'
-										}
+								btnEliminar:{
+										html: '<button onclick="EliminarProfesores()" title="Eliminar Profesor" id="hola" class="btn" style="background-color: #a61717"><i class="bi bi-trash text-light"></i></button>'		
 								}
 						}
 				}	
+				function EliminarProfesores(){
+						//location aquí mandar al controlador los id a los objetos a elimianr por GET
+				}
 		</script>
 </body>
 </html>

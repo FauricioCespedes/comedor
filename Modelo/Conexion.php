@@ -8,7 +8,7 @@ class Conexion
     {
         $user="root";
         $pass="";
-        $db="/*NombreTabla*/";
+        $db="comedor";
         if (!$this->mysqli=new mysqli('localhost',$user, $pass, $db)) {
             die('Error de conexion (' . mysqli_connect_errno() . ') '
                 . mysqli_connect_error());

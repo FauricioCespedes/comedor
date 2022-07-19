@@ -7,6 +7,8 @@ class Profesor{
 		private $cedula;
 		private $saldo;
 		private $estado;
+		private $contrasena;
+		private $correo;
 
 		public function getId(){
 			return $this->id;
@@ -62,5 +64,22 @@ class Profesor{
 
 		public function setEstado($estado){
 			$this->estado = $estado;
+		}
+
+
+		public function getCorreo(){
+			return $this->correo;
+		}
+
+		public function setCorreo($correo){
+			$this->correo = $correo;
+		}
+
+		public function getContrasena(){
+			return $this->contrasena;
+		}
+
+		public function setContrasena($contrasena){
+			$this->contrasena = $contrasena;
 		}
 }
