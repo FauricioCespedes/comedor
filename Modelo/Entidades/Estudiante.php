@@ -12,8 +12,8 @@ class Estudiante
     private $idSeccion;
     private $estado;
     private $becado;
-		private $correo;
-		private $contrasena;
+    private $correo;
+    private $contrasena;
 
 		public function getId(){
 			return $this->id;
