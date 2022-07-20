@@ -73,19 +73,25 @@ class ProfesorControlador
     }
     public function Eliminar()
     {
-				// Recordar lo que hice para el cotidiano, para que luego arregle esta parte
 				if(!isset($_REQUEST['id'])){
 						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
 				}
 				else{
-						$profesor = new Profesor();
+						$arrayIds = $_REQUEST['id'];
+						$lengthArray = $_REQUEST['lengthArray'];
 						$profesorMetodos = new ProfesorMetodos();
-					 
-						$id = $_REQUEST['id'];
-						$profesor = $profesorMetodos->Buscar($id);
-						$profesor->setEstado(0);
-					
-						if($profesorMetodos->Modificar($profesor)){
+						$volver = false;
+
+						for($i = 0; $i < $lengthArray; $i++){
+								$profesor = new Profesor();
+								$profesor = $profesorMetodos->Buscar($arrayIds[$i]);
+								$profesor->setEstado(0);
+								if($profesorMetodos->Modificar($profesor)){
+										$volver = true;
+								}
+						}	
+
+						if($volver){
 								header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
 						}
 						else{

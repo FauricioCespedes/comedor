@@ -7,9 +7,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<!--<style>
+		<!-- <style>
 				.fixed-table-toolbar > div {position: relative; z-index: -1;}
-		</style>-->
+				.fixed-table-toolbar:active > div {z-index: 0;}
+		</style> -->
 		<?php echo $head; ?>
     <title>Comedor - Profesores</title>
 </head>
@@ -37,18 +38,18 @@
 										<th data-field="primerapellido" data-sortable="true">Primer Apellido</th>
 										<th data-field="segundoapellido" data-sortable="true">Segundo Apellido</th>
 										<th data-field="cedula" data-sortable="true">Cedula</th>
-										<th data-field="saldo" data-sortable="true">Saldo</th>
+										<th data-field="saldo">Saldo</th>
 										<th data-field="correo" data-sortable="true">Correo</th>
 										<th data-field="modificar" class="text-center">Editar</th>
 								</tr>
 						</thead>
-						<tbody>
+						<tbody id="cuerpoTabla">
 								<?php
 					  				if($todosProfesor != null){
 												foreach($todosProfesor as $profesor){
 														if($profesor->getEstado() == 1){
 								?>
-								<tr>
+								<tr data-id="<?php echo $profesor->getId(); ?>">
 										<td></td>
 										<td><?php echo $profesor->getNombre(); ?></td>
 										<td><?php echo $profesor->getPrimerApellido(); ?></td>
@@ -56,7 +57,7 @@
 										<td><?php echo $profesor->getCedula(); ?></td>
 										<td><?php echo $profesor->getSaldo(); ?></td>
 										<td><?php echo $profesor->getCorreo(); ?></td>
-										<td class="text-center"><i class="fa-solid fa-pen-to-square" style="font-size: 1.2rem"></i></td>	
+										<td class="text-center"><i class="fa-solid fa-pen-to-square" style="font-size: 1.2rem; cursor: pointer;"></i></td>	
 								</tr>
 								<?php
 														}
@@ -129,7 +130,23 @@
 						}
 				}	
 				function EliminarProfesores(){
-						//location aquí mandar al controlador los id a los objetos a elimianr por GET
+						let urlIds = "";
+						let lengthArray = 0;
+						let rutaValida = false;
+						for(let i = 0; i < cuerpoTabla.children.length; i++){
+								if(cuerpoTabla.children[i].firstElementChild.firstElementChild.firstElementChild.checked){
+										urlIds += `&id[]=${cuerpoTabla.children[i].dataset.id}`;
+										rutaValida = true;
+										lengthArray++;
+										
+								}
+						}
+						if(rutaValida){
+								let direccionamiento = `./?dir=admin&controlador=Profesor&accion=Eliminar`;
+								direccionamiento += urlIds;
+								direccionamiento += `&lengthArray=${lengthArray}`;
+								location.href = direccionamiento;
+						}
 				}
 		</script>
 </body>
