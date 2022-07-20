@@ -7,10 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<!-- <style>
-				.fixed-table-toolbar > div {position: relative; z-index: -1;}
-				.fixed-table-toolbar:active > div {z-index: 0;}
-		</style> -->
+		
 		<?php echo $head; ?>
     <title>Comedor - Administradores</title>
 </head>
@@ -149,7 +146,7 @@
 								}
 						}
 				}	
-				function EliminarProfesores(){
+				function EliminarAdministradores(){
 						let urlIds = "";
 						let lengthArray = 0;
 						let rutaValida = false;
@@ -162,7 +159,7 @@
 								}
 						}
 						if(rutaValida){
-								let direccionamiento = `./?dir=admin&controlador=Profesor&accion=Eliminar`;
+								let direccionamiento = `./?dir=admin&controlador=Administrador&accion=Eliminar`;
 								direccionamiento += urlIds;
 								direccionamiento += `&lengthArray=${lengthArray}`;
 								location.href = direccionamiento;
