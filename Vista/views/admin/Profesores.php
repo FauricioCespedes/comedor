@@ -15,6 +15,9 @@
 				.fixed-table-toolbar > div {position: relative; z-index: -1;}
 				.fixed-table-toolbar:active > div {z-index: 0;}
 		</style> -->
+		<!--<style>
+				.fa-gear:active .fixed-table-toolbar > div {position: relative; z-index: -1;}
+		</style>-->
 		<?php echo $head; ?>
     <title>Comedor - Profesores</title>
 </head>
@@ -28,11 +31,11 @@
 						</h1> 						
 						<table
 						id="tableProfesores"
-						data-toggle="table"
-						data-height="600"
+						data-toggle = "table"
+						data-height = "600"
 						data-show-toggle = "true"
-						data-pagination="true"
-						data-search-align="left"
+						data-pagination = "true"
+						data-search-align = "left"
 						data-page-list="[10, 25, 50, 100, all]"
 						data-buttons="buttons"
 						data-search="true"
@@ -54,6 +57,8 @@
 					  				if($todosProfesor != null){
 												foreach($todosProfesor as $profesor){
 														if($profesor->getEstado() == $estado){
+																$idTemp = $profesor->getId();
+																$nombreTemp = $profesor->getNombre();
 								?>
 										<tr data-id="<?php echo $profesor->getId(); ?>" data-estado="<?php echo $profesor->getEstado(); ?>">
 										<td></td>
@@ -63,7 +68,7 @@
 										<td><?php echo $profesor->getCedula(); ?></td>
 										<td><?php echo $profesor->getSaldo(); ?></td>
 										<td><?php echo $profesor->getCorreo(); ?></td>
-										<td class="text-center"><i data-bs-toggle="modal" data-bs-target="#modificarProfesorModal" class="fa-solid fa-pen-to-square" style="font-size: 1.2rem; cursor: pointer;"></i></td>	
+										<td class="text-center"><i onclick="ModificarProfesores()" class="fa-solid fa-pen-to-square" style="font-size: 1.2rem; cursor: pointer;"></i></td>	
 								</tr>
 								<?php
 														}
@@ -76,54 +81,6 @@
 		</main>
 
 		<?php echo $footer; ?>
-
-		<!-- Modal Crear Profesores -->
-		<div class="modal fade" id="crearProfesorModal" tabindex="-1" aria-labelledby="crearProfesorModal" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-						<form action="./?dir=admin&controlador=Profesor&accion=Crear" method="POST">
-							<div class="modal-header">
-								<h5 class="modal-title" id="crearProfesorModal">Crear Profesor</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								<div class="mb-3">
-									<label for="nombre" class="form-label">Nombre</label>
-									<input type="text" class="form-control" id="nombre" name="nombre">
-								</div>
-								<div class="mb-3">
-									<label for="primerApellido" class="form-label">Primer Apellido</label>
-									<input type="text" class="form-control" id="primerApellido" name="primerApellido">
-								</div>
-								<div class="mb-3">
-									<label for="segundoApellido" class="form-label">Segundo Apellido</label>
-									<input type="text" class="form-control" id="segundoApellido" name="segundoApellido">
-								</div>
-								<div class="mb-3">
-									<label for="cedula" class="form-label">Cédula</label>
-									<input type="text" class="form-control" id="cedula" name="cedula">
-								</div>
-								<div class="mb-3">
-									<label for="saldo" class="form-label">Saldo (Colones)</label>
-									<input type="text" class="form-control" value="0" id="saldo" name="saldo">
-								</div>
-								<div class="mb-3">
-									<label for="correo" class="form-label">Correo</label>
-									<input type="email" class="form-control" id="correo" name="correo">
-								</div>
-								<div class="mb-3">
-									<label for="contrasena" class="form-label">Contraseña</label>
-									<input type="password" class="form-control" id="contrasena" name="contrasena">
-								</div>
-							</div>
-							<div class="modal-footer d-flex justify-content-between">
-								<button type="submit" class="btn btn-primary w-25">Crear</button>
-							</div>
-						</form>
-				</div>
-			</div>
-		</div>
-
 
 		<!-- Modal Modificar Profesores -->
 		<div class="modal fade" id="modificarProfesorModal" tabindex="-1" aria-labelledby="modificarProfesorModal" aria-hidden="true">
@@ -180,13 +137,22 @@
 				function buttons (){
 						return{
 								btnCrear:{
-										html: '<button title="Crear Profesor" data-bs-toggle="modal" data-bs-target="#crearProfesorModal" class="btn btn-success"><i class="bi bi-plus-square"></i></button>'		
+										html: '<button onclick="CrearProfesores() "title="Crear Profesor" class="btn btn-success"><i class="bi bi-plus-square"></i></button>'		
 								},
 								btnEliminar:{
 										html: '<button onclick="EliminarProfesores()" title="Eliminar Profesor" id="hola" class="btn" style="background-color: #a61717"><i class="bi bi-trash text-light"></i></button>'		
 								}
 						}
 				}	
+
+				function CrearProfesores(){
+						location.href = "./?dir=admin&controlador=Profesor&accion=Index&id=crear";
+				}
+
+				function ModificarProfesores(id, nombre, primerap, segundoap, cedula, saldo, correo){
+						location.href = `./?dir=admin&controlador=Profesor&accion=Index&id=modificar&id=${id}&nombre=${nombre}&primerap=${primerap}&segundoap=${segundoap}&cedula=${cedula}&saldo=${saldo}&correo=${correo}`;
+				}
+
 				function EliminarProfesores(){
 						let urlIds = "";
 						let lengthArray = 0;
@@ -206,17 +172,6 @@
 								location.href = direccionamiento;
 						}
 				}
-				cuerpoTabla.addEventListener('click', (e)=>{
-						if(e.target.classList.contains('fa-pen-to-square')){
-								let id = e.target.parentElement.parentElement.dataset.id;
-								let estado = e.target.parentElement.parentElement.dataset.estado;
-								let idModificar = document.getElementById('idModificar');
-								let estadoModificar = document.getElementById('estadoModificar');
-
-								idModificar.value = id;
-								estadoModificar.value = estado;
-						}
-				});
 		</script>
 </body>
 </html>

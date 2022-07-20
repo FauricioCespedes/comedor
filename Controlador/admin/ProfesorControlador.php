@@ -4,14 +4,19 @@ require_once './Modelo/Conexion.php';
 require_once './Modelo/Entidades/Profesor.php';
 require_once './Modelo/Metodos/ProfesorMetodos.php';
 
-
 class ProfesorControlador
 {
-    public function Index()
+    public function Index($vista)
     {
-				$profesorMetodos = new ProfesorMetodos();
-				$todosProfesor = $profesorMetodos->BuscarTodos();
-        require_once "./Vista/views/admin/Profesores.php";
+				if($vista == "main"){
+						$profesorMetodos = new ProfesorMetodos();
+						$todosProfesor = $profesorMetodos->BuscarTodos();
+						require_once "./Vista/views/admin/Profesores.php";
+				}
+				else if($vista == "crear")
+						require_once "./Vista/views/admin/ProfesoresCrear.php";
+				else if($vista == "modificar")
+						require_once "./Vista/views/admin/ProfesoresModificar.php";
     }
     public function Crear()
     {
