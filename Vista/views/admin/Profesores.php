@@ -11,13 +11,12 @@
 <html lang="en">
 <head>
 		<!-- <style>
-		Cuando se le haga click o :active a la rueda que al otro coso se le ponga z index negativo
 				.fixed-table-toolbar > div {position: relative; z-index: -1;}
-				.fixed-table-toolbar:active > div {z-index: 0;}
-		</style> -->
-		<!--<style>
+				.fixed-table-toolbar:hover > div {z-index: 0;}
+		</style>
+		<style>
 				.fa-gear:active .fixed-table-toolbar > div {position: relative; z-index: -1;}
-		</style>-->
+		</style> -->
 		<?php echo $head; ?>
     <title>Comedor - Profesores</title>
 </head>
@@ -30,16 +29,16 @@
 								<?php if($estado == 1) echo 'Profesores'; else echo 'Profesores Eliminados' ?>
 						</h1> 						
 						<table
-						id="tableProfesores"
+						id = "tableProfesores"
 						data-toggle = "table"
 						data-height = "600"
 						data-show-toggle = "true"
 						data-pagination = "true"
 						data-search-align = "left"
-						data-page-list="[10, 25, 50, 100, all]"
-						data-buttons="buttons"
-						data-search="true"
-						data-url="">
+						data-page-list = "[10, 25, 50, 100, all]"
+						data-buttons = "buttons"
+						data-search = "true"
+						data-url = "">
 						<thead>
 								<tr>
 										<th data-checkbox="true"></th>
@@ -59,17 +58,21 @@
 														if($profesor->getEstado() == $estado){
 																$idTemp = $profesor->getId();
 																$nombreTemp = $profesor->getNombre();
-																$primerAp = $profesor->getPrimerApellido()
+																$primerAp = $profesor->getPrimerApellido();
+																$segundoAp = $profesor->getSegundoApellido();
+																$cedula = $profesor->getCedula();
+																$saldo = $profesor->getSaldo();
+																$correo = $profesor->getCorreo();
 								?>
-										<tr data-id="<?php echo $profesor->getId(); ?>" data-estado="<?php echo $profesor->getEstado(); ?>">
+										<tr data-id="<?php echo $idTemp; ?>">
 										<td></td>
-										<td><?php echo $profesor->getNombre(); ?></td>
-										<td><?php echo $profesor->getPrimerApellido(); ?></td>
-										<td><?php echo $profesor->getSegundoApellido(); ?></td>
-										<td><?php echo $profesor->getCedula(); ?></td>
-										<td><?php echo $profesor->getSaldo(); ?></td>
-										<td><?php echo $profesor->getCorreo(); ?></td>
-										<td class="text-center"><i onclick="ModificarProfesores()" class="fa-solid fa-pen-to-square" style="font-size: 1.2rem; cursor: pointer;"></i></td>	
+										<td><?php echo $nombreTemp ?></td>
+										<td><?php echo $primerAp ?></td>
+										<td><?php echo $segundoAp ?></td>
+										<td><?php echo $cedula ?></td>
+										<td><?php echo $saldo ?></td>
+										<td><?php echo $correo ?></td>
+										<td class="text-center"><i onclick="ModificarProfesores('<?php echo $idTemp; ?>', '<?php echo $nombreTemp ?>', '<?php echo $primerAp ?>', '<?php echo $segundoAp ?>', '<?php echo $cedula ?>', '<?php echo $saldo ?>', '<?php echo $correo ?>')" class="fa-solid fa-pen-to-square" style="font-size: 1.2rem; cursor: pointer;"></i></td>	
 								</tr>
 								<?php
 														}
@@ -132,42 +135,75 @@
 			</div>
 		</div>
 
+		<?php 
+		if($estado == 1){
+		?>
+				<script>
+						function buttons (){
+								return{
+										btnCrear:{
+												html: '<button onclick="CrearProfesores()" title="Crear Profesor" class="btn btn-success"><i class="bi bi-plus-square"></i></button>'		
+										},
+										btnEliminar:{
+												html: '<button onclick="CambiarEstado(0)" title="Eliminar Profesor" class="btn" style="background-color: #a61717"><i class="bi bi-trash text-light"></i></button>'		
+										},
+										btnVerInactivos:{
+												html: '<button onclick="verInactivos()" title="Ver eliminados" class="btn btn-primary text-light"><i class="bi bi-person-x"></i></button>'		
+										}
+								}
+						}	
+				</script>
+		<?php
+		}
+		else{
+		?>
+				<script>
+						function buttons (){
+								return{
+										btnActivar:{
+												html: '<button onclick="CambiarEstado(1)" title="Activar Profesor" class="btn btn-primary"><i class="bi bi-heart"></i></button>'		
+										},
+										btnVerActivos:{
+												html: '<button onclick="verActivos()" title="Ver Activos" class="btn btn-success"><i class="bi bi-person-check"></i></button>'		
+										}
+								}
+						}	
+				</script>
+		<?php
+		}
+		?>
+
 		<script>
 				const cuerpoTabla = document.getElementById('cuerpoTabla');
 
-				function buttons (){
-						return{
-								btnCrear:{
-										html: '<button onclick="CrearProfesores() "title="Crear Profesor" class="btn btn-success"><i class="bi bi-plus-square"></i></button>'		
-								},
-								btnEliminar:{
-										html: '<button onclick="EliminarProfesores()" title="Eliminar Profesor" id="hola" class="btn" style="background-color: #a61717"><i class="bi bi-trash text-light"></i></button>'		
-								}
-						}
-				}	
+				function verActivos(){
+						location.href = "./?dir=admin&controlador=Profesor&accion=Index&id=main";
+				}
+				function verInactivos(){
+						location.href = "./?dir=admin&controlador=Profesor&accion=Index&id=main&estados=0";
+				}
 
 				function CrearProfesores(){
 						location.href = "./?dir=admin&controlador=Profesor&accion=Index&id=crear";
 				}
 
 				function ModificarProfesores(id, nombre, primerap, segundoap, cedula, saldo, correo){
-						location.href = `./?dir=admin&controlador=Profesor&accion=Index&id=modificar&id=${id}&nombre=${nombre}&primerap=${primerap}&segundoap=${segundoap}&cedula=${cedula}&saldo=${saldo}&correo=${correo}`;
+						location.href = `./?dir=admin&controlador=Profesor&accion=Index&id=modificar&idU=${id}&nombre=${nombre}&primerap=${primerap}&segundoap=${segundoap}&cedula=${cedula}&saldo=${saldo}&correo=${correo}`;
 				}
 
-				function EliminarProfesores(){
+				function CambiarEstado(estado){
 						let urlIds = "";
 						let lengthArray = 0;
 						let rutaValida = false;
 						for(let i = 0; i < cuerpoTabla.children.length; i++){
 								if(cuerpoTabla.children[i].firstElementChild.firstElementChild.firstElementChild.checked){
-										urlIds += `&id[]=${cuerpoTabla.children[i].dataset.id}`;
+										urlIds += `&idsArr[]=${cuerpoTabla.children[i].dataset.id}`;
 										rutaValida = true;
 										lengthArray++;
-										
 								}
 						}
 						if(rutaValida){
-								let direccionamiento = `./?dir=admin&controlador=Profesor&accion=Eliminar`;
+								let direccionamiento = `./?dir=admin&controlador=Profesor&accion=CambiarEstado&id=${estado}`;
 								direccionamiento += urlIds;
 								direccionamiento += `&lengthArray=${lengthArray}`;
 								location.href = direccionamiento;
@@ -176,4 +212,3 @@
 		</script>
 </body>
 </html>
-
