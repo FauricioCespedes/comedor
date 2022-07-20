@@ -12,15 +12,16 @@
 <body class="text-center">
 
 	<div class="container">
-		<div class="row row-cols-2">
-			<div class="col">
-			</div>
-			<div class="col">
-				<div class="p-5">
-
-					<article class="card-body">
-						
-						<div class="shadow p-3 mb-5 bg-white rounded">
+		<div class="pt-5">
+			<div class="shadow p-3 mb-5 bg-white rounded">
+				<div class="row row-cols-2">
+					<div class="col">
+						<div class="p-5">
+						<img class="card-img" src=""> <!--Aquí va la imagen que gusten poner al lado, como el ejemplo de figma-->
+						</div>
+					</div>
+					<div class="col">
+						<div class="p-5">
 							<img class="card-img-top" src="https://covao.ed.cr/wp-content/uploads/2022/03/logo-covao-sin_slogan.png">
 							<div class="pt-5">
 								<form method="post" action="./index.php?controlador=Login&accion=InicioSesion">
@@ -34,12 +35,13 @@
 								</form>
 							</div>
 						</div>
-					</article>
 
+					</div>
 				</div>
-
 			</div>
+
 		</div>
+
 	</div>
 
 
