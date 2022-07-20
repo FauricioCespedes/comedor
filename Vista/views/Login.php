@@ -10,14 +10,14 @@
 </head>
 
 <body class="text-center">
-
 	<div class="container">
 		<div class="pt-5">
 			<div class="shadow p-3 mb-5 bg-white rounded">
 				<div class="row row-cols-2">
 					<div class="col">
 						<div class="p-5">
-						<img class="card-img" src=""> <!--Aquí va la imagen que gusten poner al lado, como el ejemplo de figma-->
+							<img class="card-img" src="">
+							<!--Aquí va la imagen que gusten poner al lado, como el ejemplo de figma-->
 						</div>
 					</div>
 					<div class="col">
@@ -35,11 +35,9 @@
 								</form>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 	</div>
