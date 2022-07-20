@@ -21,7 +21,7 @@
 				</a>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<li><a class="dropdown-item" href="./?dir=admin&controlador=Estudiante&accion=Index">Estudiantes</a></li>
-					<li><a class="dropdown-item" href="./?dir=admin&controlador=Profesor&accion=Index">Profesores</a></li>
+					<li><a class="dropdown-item" href="./?dir=admin&controlador=Profesor&accion=Index&id=main">Profesores</a></li>
 					<li><a class="dropdown-item" href="./?dir=admin&controlador=Administrador&accion=Index">Administradores</a></li>
 				</ul>
 			</li>
@@ -77,7 +77,7 @@
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<li><a class="dropdown-item" href="./?dir=admin&controlador=Estudiante&accion=Index">Estudiantes</a></li>
-							<li><a class="dropdown-item" href="./?dir=admin&controlador=Profesor&accion=Index">Profesores</a></li>
+							<li><a class="dropdown-item" href="./?dir=admin&controlador=Profesor&accion=Index&id=main">Profesores</a></li>
 							<li><a class="dropdown-item" href="./?dir=admin&controlador=Administrador&accion=Index">Administradores</a></li>
 						</ul>
 					</li>
