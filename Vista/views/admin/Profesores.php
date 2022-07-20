@@ -59,6 +59,7 @@
 														if($profesor->getEstado() == $estado){
 																$idTemp = $profesor->getId();
 																$nombreTemp = $profesor->getNombre();
+																$primerAp = $profesor->getPrimerApellido()
 								?>
 										<tr data-id="<?php echo $profesor->getId(); ?>" data-estado="<?php echo $profesor->getEstado(); ?>">
 										<td></td>
