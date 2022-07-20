@@ -57,7 +57,7 @@
 										<td><?php echo $profesor->getCedula(); ?></td>
 										<td><?php echo $profesor->getSaldo(); ?></td>
 										<td><?php echo $profesor->getCorreo(); ?></td>
-										<td class="text-center"><i class="fa-solid fa-pen-to-square" style="font-size: 1.2rem; cursor: pointer;"></i></td>	
+										<td class="text-center"><i data-bs-toggle="modal" data-bs-target="#modificarProfesorModal" class="fa-solid fa-pen-to-square" style="font-size: 1.2rem; cursor: pointer;"></i></td>	
 								</tr>
 								<?php
 														}
@@ -118,7 +118,58 @@
 			</div>
 		</div>
 
+
+		<!-- Modal Modificar Profesores -->
+		<div class="modal fade" id="modificarProfesorModal" tabindex="-1" aria-labelledby="modificarProfesorModal" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+						<form action="./?dir=admin&controlador=Profesor&accion=Modificar" method="POST">
+							<div class="modal-header">
+								<h5 class="modal-title" id="modificarProfesorModal">Modificar Profesor</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="mb-3">
+									<input hidden type="text" class="form-control" id="idModificar" name="idModificar">
+									<label for="nombre" class="form-label">Nombre</label>
+									<input type="text" class="form-control" id="nombreModificar" name="nombreModificar">
+								</div>
+								<div class="mb-3">
+									<label for="primerApellido" class="form-label">Primer Apellido</label>
+									<input type="text" class="form-control" id="primerApellidoModificar" name="primerApellidoModificar">
+								</div>
+								<div class="mb-3">
+									<label for="segundoApellido" class="form-label">Segundo Apellido</label>
+									<input type="text" class="form-control" id="segundoApellidoModificar" name="segundoApellidoModificar">
+								</div>
+								<div class="mb-3">
+									<label for="cedula" class="form-label">Cédula</label>
+									<input type="text" class="form-control" id="cedulaModificar" name="cedulaModificar">
+								</div>
+								<div class="mb-3">
+									<label for="saldo" class="form-label">Saldo (Colones)</label>
+									<input type="text" class="form-control" value="0" id="saldoModificar" name="saldoModificar">
+								</div>
+								<div class="mb-3">
+									<label for="correo" class="form-label">Correo</label>
+									<input type="email" class="form-control" id="correoModificar" name="correoModificar">
+								</div>
+								<div class="mb-3">
+									<label for="contrasena" class="form-label">Contraseña</label>
+									<input type="password" class="form-control" id="contrasenaModificar" name="contrasenaModificar">
+								</div>
+							</div>
+							<div class="modal-footer d-flex justify-content-between">
+								<button type="submit" class="btn btn-primary w-25">Modificar</button>
+							</div>
+						</form>
+				</div>
+			</div>
+		</div>
+
 		<script>
+				const cuerpoTabla = document.getElementById('cuerpoTabla');
+
 				function buttons (){
 						return{
 								btnCrear:{
@@ -148,6 +199,14 @@
 								location.href = direccionamiento;
 						}
 				}
+				cuerpoTabla.addEventListener('click', (e)=>{
+						if(e.target.classList.contains('fa-pen-to-square')){
+								let id = e.target.parentElement.parentElement.dataset.id;
+								let idModificar = document.getElementById('idModificar');
+
+								idModificar.value = id;
+						}
+				});
 		</script>
 </body>
 </html>
