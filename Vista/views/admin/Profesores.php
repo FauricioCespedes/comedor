@@ -3,11 +3,15 @@
 		$header = file_get_contents('./Vista/views/components/Header.php');
 		$sidebar = file_get_contents('./Vista/views/components/MenuAdmin.php');
 		$footer = file_get_contents('./Vista/views/components/Footer.php');
+
+		if(isset($_REQUEST['estados'])) $estado = 0;
+		else $estado = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 		<!-- <style>
+		Cuando se le haga click o :active a la rueda que al otro coso se le ponga z index negativo
 				.fixed-table-toolbar > div {position: relative; z-index: -1;}
 				.fixed-table-toolbar:active > div {z-index: 0;}
 		</style> -->
@@ -19,7 +23,9 @@
 		<main class="d-flex">
 		<?php echo $sidebar; ?>
 				<section class="content-section w-75 mx-auto">
-						<h1 class="fs-3 mt-2">Profesores</h1> 						
+						<h1 class="fs-3 mt-2">
+								<?php if($estado == 1) echo 'Profesores'; else echo 'Profesores Eliminados' ?>
+						</h1> 						
 						<table
 						id="tableProfesores"
 						data-toggle="table"
@@ -47,9 +53,9 @@
 								<?php
 					  				if($todosProfesor != null){
 												foreach($todosProfesor as $profesor){
-														if($profesor->getEstado() == 1){
+														if($profesor->getEstado() == $estado){
 								?>
-								<tr data-id="<?php echo $profesor->getId(); ?>">
+										<tr data-id="<?php echo $profesor->getId(); ?>" data-estado="<?php echo $profesor->getEstado(); ?>">
 										<td></td>
 										<td><?php echo $profesor->getNombre(); ?></td>
 										<td><?php echo $profesor->getPrimerApellido(); ?></td>
@@ -131,6 +137,7 @@
 							<div class="modal-body">
 								<div class="mb-3">
 									<input hidden type="text" class="form-control" id="idModificar" name="idModificar">
+									<input hidden type="text" class="form-control" id="estadoModificar" name="estadoModificar">
 									<label for="nombre" class="form-label">Nombre</label>
 									<input type="text" class="form-control" id="nombreModificar" name="nombreModificar">
 								</div>
@@ -202,9 +209,12 @@
 				cuerpoTabla.addEventListener('click', (e)=>{
 						if(e.target.classList.contains('fa-pen-to-square')){
 								let id = e.target.parentElement.parentElement.dataset.id;
+								let estado = e.target.parentElement.parentElement.dataset.estado;
 								let idModificar = document.getElementById('idModificar');
+								let estadoModificar = document.getElementById('estadoModificar');
 
 								idModificar.value = id;
+								estadoModificar.value = estado;
 						}
 				});
 		</script>

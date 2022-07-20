@@ -4,6 +4,7 @@ require_once './Modelo/Conexion.php';
 require_once './Modelo/Entidades/Profesor.php';
 require_once './Modelo/Metodos/ProfesorMetodos.php';
 
+
 class ProfesorControlador
 {
     public function Index()
@@ -54,6 +55,7 @@ class ProfesorControlador
 				$saldo = $_POST['saldoModificar'];
 				$correo = $_POST['correoModificar'];
 				$contrasena = $_POST['contrasenaModificar'];
+				$estado = $_POST['estadoModificar'];
 
 				$profesor->setId($id);
 				$profesor->setNombre($nombre);
@@ -63,6 +65,8 @@ class ProfesorControlador
 				$profesor->setSaldo($saldo);
 				$profesor->setCorreo($correo);
 				$profesor->setContrasena($contrasena);
+				$profesor->setEstado($estado);
+				
 
 				if($profesorMetodos->Modificar($profesor)){
 						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
