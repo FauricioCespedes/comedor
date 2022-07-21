@@ -15,7 +15,6 @@ class IndexControlador
     {
 				//Aquí va el logout	
     }
-<<<<<<< HEAD
     public function Login()
     {
         require_once './Modelo/Conexion.php';
@@ -47,37 +46,6 @@ class IndexControlador
                 }
             }
         }
-
-
-
     }
 }
-=======
 
-
-
-    
-//      public function Login()
-//     {
-//         require_once './Modelo/Conexion.php';
-//         require_once './Modelo/Entidades/Cliente.php';
-//         require_once './Modelo/Metodos/ClienteMetodos.php';
-
-//         $funcionario = new Funcionario();
-//         $clienteMetodos = new FuncionarioMetodos();
-
-
-//         $cliente->setId($_POST['idInput']);
-//         $cliente->setCedula($_POST['nuevoCedula']);
-//         switch ()
-//         {
-//             case 1:
-//                 break;
-//             case 2:
-//                 break;
-        
-
-//     }
-//
- }
->>>>>>> 63ade3a488958f6d9342df3017ef3903772db0a2
