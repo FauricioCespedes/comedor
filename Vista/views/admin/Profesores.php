@@ -10,13 +10,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<!-- <style>
-				.fixed-table-toolbar > div {position: relative; z-index: -1;}
-				.fixed-table-toolbar:hover > div {z-index: 0;}
-		</style>
-		<style>
-				.fa-gear:active .fixed-table-toolbar > div {position: relative; z-index: -1;}
-		</style> -->
 		<?php echo $head; ?>
     <title>Comedor - Profesores</title>
 </head>

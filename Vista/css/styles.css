@@ -45,6 +45,8 @@ body{
 		display: flex;
 		justify-content: space-between;
 		padding: .5em 2em;
+		position: relative;
+		z-index: 5;
 }
 .fa-gear{
 		transition: transform 300ms;
@@ -107,6 +109,9 @@ body{
 				font-size: 1.45rem;
 		}
 		.asistencia-section{
+				width: 90% !important;
+		}
+		.mobile-target{
 				width: 90% !important;
 		}
 }

@@ -1,12 +1,16 @@
+<?php
+		$head = file_get_contents('./Vista/views/components/Head.php');
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <?php echo $head; ?>
+	<title>Crear Profesor</title>
 </head>
 <body>
-	<form class="">
+	<form action="./?" method="POST" class="w-50 mx-auto target-background p-4 my-4 rounded mobile-target">
+    <h1 class="fs-2">Crear Profesor</h1>
 		<div class="mb-3">
 			<label for="nombre" class="form-label">Nombre</label>
 			<input type="text" class="form-control" id="nombre" name="nombre">
