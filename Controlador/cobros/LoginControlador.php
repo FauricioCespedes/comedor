@@ -2,10 +2,8 @@
 
 class LoginControlador
 {
-    public function InicioSesion()
+    public function Nuevo()
     {
-
-        if($resultado == 1)
         require_once "./Modelo/Metodos/ClienteMetodos.php";
         require_once "./Modelo/Entidades/Cliente.php";
         require_once "./Modelo/Conexion.php";

@@ -2,7 +2,7 @@
 
 class EstudianteMetodos
 {
-        function BuscarEstudianteId($id)
+    function BuscarEstudianteId($id)
     {
         $estudiante = new Estudiante();
         $conexion = new Conexion();
