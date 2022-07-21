@@ -41,12 +41,13 @@ class ProfesorControlador
 				$profesor->setEstado(1);
 
 				if($profesorMetodos->Crear($profesor)){
-						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
+						header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main');
 				}
 				else{
-						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
+						header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main');
 				}
     }
+
     public function Modificar()
     {
 				$profesor = new Profesor();
@@ -74,19 +75,19 @@ class ProfesorControlador
 				
 
 				if($profesorMetodos->Modificar($profesor)){
-						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
+						header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main');
 				}
 				else{
 						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
 				}
     }
-    public function Eliminar()
+    public function CambiarEstado($estado)
     {
-				if(!isset($_REQUEST['id'])){
-						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
+				if(!isset($_REQUEST['idsArr'])){
+						header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main');
 				}
 				else{
-						$arrayIds = $_REQUEST['id'];
+						$arrayIds = $_REQUEST['idsArr'];
 						$lengthArray = $_REQUEST['lengthArray'];
 						$profesorMetodos = new ProfesorMetodos();
 						$volver = false;
@@ -94,17 +95,27 @@ class ProfesorControlador
 						for($i = 0; $i < $lengthArray; $i++){
 								$profesor = new Profesor();
 								$profesor = $profesorMetodos->Buscar($arrayIds[$i]);
-								$profesor->setEstado(0);
+								$profesor->setEstado($estado);
 								if($profesorMetodos->Modificar($profesor)){
 										$volver = true;
 								}
 						}	
 
-						if($volver){
-								header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
+						if($estado == 0){
+								if($volver){
+										header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main');
+								}
+								else{
+										header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main');
+								}
 						}
 						else{
-								header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
+								if($volver){
+										header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main&estados=0');
+								}
+								else{
+										header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main&estados=0');
+								}
 						}
 				}
     }
