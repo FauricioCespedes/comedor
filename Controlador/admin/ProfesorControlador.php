@@ -41,12 +41,13 @@ class ProfesorControlador
 				$profesor->setEstado(1);
 
 				if($profesorMetodos->Crear($profesor)){
-						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
+						header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main');
 				}
 				else{
-						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
+						header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main');
 				}
     }
+
     public function Modificar()
     {
 				$profesor = new Profesor();
@@ -74,7 +75,7 @@ class ProfesorControlador
 				
 
 				if($profesorMetodos->Modificar($profesor)){
-						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
+						header('Location: ./?dir=admin&controlador=Profesor&accion=Index&id=main');
 				}
 				else{
 						header('Location: ./?dir=admin&controlador=Profesor&accion=Index');
