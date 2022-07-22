@@ -14,6 +14,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet"> 
 
+<!--Librería para leer archivos Excel-->
+<script defer src="https://cdn.sheetjs.com/xlsx-0.18.9/package/dist/xlsx.full.min.js"></script>
+
 <!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/6853cc10ae.js" crossorigin="anonymous"></script>
 

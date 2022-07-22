@@ -86,7 +86,7 @@
 						function buttons (){
 								return{
 										btnCrear:{
-												html: '<button onclick="CrearProfesores()" title="Crear Profesor" class="btn btn-success"><i class="bi bi-plus-square"></i></button>'		
+												html: '<button onclick="CrearProfesores()" title="Crear Profesor" class="btn text-light" style="background-color: #2bad07;"><i class="bi bi-plus-square"></i></button>'		
 										},
 										btnEliminar:{
 												html: '<button onclick="CambiarEstado(0)" title="Eliminar Profesor" class="btn" style="background-color: #a61717"><i class="bi bi-trash text-light"></i></button>'		
@@ -105,10 +105,10 @@
 						function buttons (){
 								return{
 										btnActivar:{
-												html: '<button onclick="CambiarEstado(1)" title="Activar Profesor" class="btn btn-primary"><i class="bi bi-heart"></i></button>'		
+												html: '<button onclick="CambiarEstado(1)" title="Activar Profesor" class="btn text-light" style="background-color: #2bad07;"><i class="bi bi-heart"></i></button>'		
 										},
 										btnVerActivos:{
-												html: '<button onclick="verActivos()" title="Ver Activos" class="btn btn-success"><i class="bi bi-person-check"></i></button>'		
+												html: '<button onclick="verActivos()" title="Ver Activos" class="btn btn-primary"><i class="bi bi-person-check"></i></button>'		
 										}
 								}
 						}	
